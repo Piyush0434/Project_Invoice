@@ -50,6 +50,8 @@ public class InvoiceController {
             emailService.sendInvoiceEmail(customerEmail, file);
             return ResponseEntity.ok().body("Invoice sent successfully!");
         } catch (Exception e) {
+            e.printStackTrace();
+
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to send invoice.");
         }
